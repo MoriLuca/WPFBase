@@ -25,14 +25,10 @@ namespace BaseMvvm.Views
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-        private void ShowName_Click(object sender, RoutedEventArgs e)
+        private void ChangeTitle_Click(object sender, RoutedEventArgs e)
         {
-            App.Current.MainWindow.Close();
+            (DataContext as ViewModels.HomeViewModel).Title = NewTitle.Text;
         }
     }
 }

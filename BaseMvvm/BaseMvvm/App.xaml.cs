@@ -18,6 +18,7 @@ namespace BaseMvvm
             base.OnStartup(e);
 
             this.MainWindow = new Views.HomeView();
+            this.MainWindow.DataContext = new ViewModels.HomeViewModel();
             this.MainWindow.Show();
         }
     }

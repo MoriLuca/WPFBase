@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BaseMvvm.Views"
+        xmlns:vm="clr-namespace:BaseMvvm.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="ShowName" Click="ShowName_Click"/>
-    </Grid>
+        Title="{Binding Path=Title}" 
+        Height="450" Width="800"
+        d:DataContext="{d:DesignInstance vm:HomeViewModel, IsDesignTimeCreatable=True}">
+    <StackPanel>
+        <TextBox x:Name="NewTitle">Inserire il nuovo titolo</TextBox>
+        <Button x:Name="ChangeTitle" Click="ChangeTitle_Click" Content="Cambia titolo"/>
+    </StackPanel>
 </Window>
