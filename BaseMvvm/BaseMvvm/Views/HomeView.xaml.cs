@@ -25,5 +25,19 @@ namespace BaseMvvm.Views
             InitializeComponent();
         }
 
+        private void CheckForEnter(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                if (ChangeTitle.Command.CanExecute(this)) ChangeTitle.Command.Execute(this);
+
+            if (e.Key == Key.Escape)
+                NewTitle.Text = "";
+
+            if (e.Key == Key.U && (Keyboard.Modifiers == ModifierKeys.Control))
+                NewTitle.Text = NewTitle.Text.ToUpper();
+
+            if (e.Key == Key.L && (Keyboard.Modifiers == ModifierKeys.Control))
+                NewTitle.Text = NewTitle.Text.ToLower();
+        }
     }
 }

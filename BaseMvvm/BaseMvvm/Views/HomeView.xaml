@@ -7,12 +7,35 @@
         xmlns:vm="clr-namespace:BaseMvvm.ViewModels"
         mc:Ignorable="d"
         Title="{Binding Path=Title}" 
-        Height="450" Width="800"
-        d:DataContext="{d:DesignInstance vm:HomeViewModel, IsDesignTimeCreatable=True}">
-    <StackPanel>
-        <TextBox x:Name="NewTitle" Text="{Binding Path=NuovoTitolo, UpdateSourceTrigger=PropertyChanged}"/>
+        Height="300" Width="800"
+        d:DataContext="{d:DesignInstance vm:HomeViewModel, IsDesignTimeCreatable=True}"
+        Background="Gray">
+    <StackPanel Margin="5px" Background="White">
+        <TextBox x:Name="NewTitle" KeyDown="CheckForEnter" Text="{Binding Path=NuovoTitolo, UpdateSourceTrigger=PropertyChanged}"/>
         <Button x:Name="ChangeTitle" Content="Cambia titolo" Command="{Binding Path=CambiaTitoloCommand}"/>
-        <TextBlock Text="{Binding Path=NuovoTitolo}"/>
-        <Button>cao</Button>
+        <Grid Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Button Margin="{Binding ElementName=CellsGap, Path=Value}" Grid.Column="0" Grid.Row="0" Content="Opzioni 1"/>
+            <Button Margin="{Binding ElementName=CellsGap, Path=Value}" Grid.Column="1" Grid.Row="0" Content="Opzioni 2"/>
+            <Button Margin="{Binding ElementName=CellsGap, Path=Value}" Grid.Column="2" Grid.Row="0" Content="Opzioni 3"/>
+            <Button Margin="{Binding ElementName=CellsGap, Path=Value}" Grid.Column="0" Grid.Row="1" Content="Opzioni 4"/>
+            <Button Margin="{Binding ElementName=CellsGap, Path=Value}" Grid.Column="1" Grid.Row="1" Content="Opzioni 5"/>
+            <Button Margin="{Binding ElementName=CellsGap, Path=Value}" Grid.Column="2" Grid.Row="1" Content="Opzioni 6"/>
+            <Button Margin="{Binding ElementName=CellsGap, Path=Value}" Grid.Column="0" Grid.Row="2" Content="Opzioni 7"/>
+            <Button Margin="{Binding ElementName=CellsGap, Path=Value}" Grid.Column="1" Grid.Row="2" Content="Opzioni 8"/>
+            <Button Margin="{Binding ElementName=CellsGap, Path=Value}" Grid.Column="2" Grid.Row="2" Content="Opzioni 9"/>
+
+        </Grid>
+        <Slider x:Name="CellsGap" Minimum="0" Maximum="10"/>
     </StackPanel>
 </Window>
