@@ -13,16 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BaseMvvm
+namespace BaseMvvm.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HomeView : Window
     {
-        public MainWindow()
+        public HomeView()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ShowName_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.MainWindow.Close();
         }
     }
 }
