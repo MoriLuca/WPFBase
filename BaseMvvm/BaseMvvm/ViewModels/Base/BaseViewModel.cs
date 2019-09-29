@@ -11,5 +11,10 @@ namespace BaseMvvm.ViewModels.Base
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+         
+        protected bool IsDesignMode
+        {
+            get => DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject());
+        }
     }
 }
