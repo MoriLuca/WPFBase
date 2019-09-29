@@ -6,24 +6,45 @@ namespace BaseMvvm.ViewModels
 {
     public class HomeViewModel : Base.BaseViewModel
     {
-        private string title;
+        public RealyComands CambiaTitoloCommand { get; private set; }
+
+        private string _title;
+        private string _nuovoTitolo;
         public string Title
         {
-            get => title;
+            get => _title;
             set
             {
-                if (value != title)
+                if (value != _title)
                 {
-                    title = value;
+                    _title = value;
                     NotifyPropertyChanged();
+                }
+            }
+        }
+        public string NuovoTitolo
+        {
+            get => _nuovoTitolo;
+            set
+            {
+                if (value != _nuovoTitolo)
+                {
+                    _nuovoTitolo = value;
+                    NotifyPropertyChanged();
+                    CambiaTitoloCommand.RaiseCanExecuteChanged();
                 }
             }
         }
 
         public HomeViewModel()
         {
-            Title = "Titolo assegnato dal ctor";
+            CambiaTitoloCommand = new RealyComands(cambiaTitoloMethod, cambiaTitoloCanExec);
         }
+
+
+        private void cambiaTitoloMethod(object param) => Title = NuovoTitolo;
+
+        private bool cambiaTitoloCanExec(object param) => (NuovoTitolo?.Length > 5 && NuovoTitolo.Length < 10);
 
     }
 }

@@ -25,10 +25,5 @@ namespace BaseMvvm.Views
             InitializeComponent();
         }
 
-
-        private void ChangeTitle_Click(object sender, RoutedEventArgs e)
-        {
-            (DataContext as ViewModels.HomeViewModel).Title = NewTitle.Text;
-        }
     }
 }

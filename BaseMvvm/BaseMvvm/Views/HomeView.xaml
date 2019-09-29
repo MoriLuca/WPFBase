@@ -10,7 +10,9 @@
         Height="450" Width="800"
         d:DataContext="{d:DesignInstance vm:HomeViewModel, IsDesignTimeCreatable=True}">
     <StackPanel>
-        <TextBox x:Name="NewTitle">Inserire il nuovo titolo</TextBox>
-        <Button x:Name="ChangeTitle" Click="ChangeTitle_Click" Content="Cambia titolo"/>
+        <TextBox x:Name="NewTitle" Text="{Binding Path=NuovoTitolo, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button x:Name="ChangeTitle" Content="Cambia titolo" Command="{Binding Path=CambiaTitoloCommand}"/>
+        <TextBlock Text="{Binding Path=NuovoTitolo}"/>
+        <Button>cao</Button>
     </StackPanel>
 </Window>
